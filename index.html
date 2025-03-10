@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>National Legal Hackathon</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Russo+One&display=swap&family=Pacifico" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://kit.fontawesome.com/f4849ba58d.js" crossorigin="anonymous"></script>
+<style>
+.russo-one-regular {
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+    position: relative;
+    background-color: rgb(255, 255, 255); /* Fallback color */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/bg3.png') no-repeat center center/cover;
+    opacity: 0.4; /* Adjust this value to control opacity */
+    z-index: -1; /* Ensures it stays behind all content */
+}
+
+        /* Hero Section */
+        .fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+    background-color: rgb(255, 255, 255); /* Ensure the background is solid */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust Hero Section to prevent overlap */
+.hero-section {
+    position: relative;
+    background: url('assets/bg1.png') no-repeat center center/cover;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    margin-top: 120px; /* Pushes the hero section down */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            line-height: 1.2;
+        }
+
+
+        .dept-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.collab-text {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.university-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+        .announcement-ribbon {
+    width: 100%;
+    background: #ff5733; /* Vibrant announcement color */
+    color: white;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.announcement-wrapper {
+    display: flex;
+    width: max-content;
+    animation: marquee 15s linear infinite;
+}
+
+.announcement-text {
+    padding-right: 50px; /* Space between repeating text */
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+        /* Faculty Section Background */
+.faculty-section {
+   /* background: url('faculty-bg.jpg') no-repeat center center/cover;*/
+    padding: 60px 0;
+    position: relative;
+    background-color: #fefeff;
+  
+}
+
+/* Non-clickable button for title */
+.faculty-title-btn {
+    background-color: #ff5733;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: default;
+    display: inline-block;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Faculty Cards */
+.faculty-card {
+    background-color: rgb(0, 50, 187); /* Slight transparency for readability */
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    
+}
+
+.faculty-card:hover {
+    background-color: rgb(0, 79, 225);
+    transform: scale(1.05);
+}
+
+/* Faculty Images */
+.faculty-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* General Card Styling */
+.about-card {
+    width: 100%;
+  
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Equal Image Heights */
+.about-img {
+    width: 100%;
+    height: 400px; /* Set fixed height for consistency */
+    object-fit: cover; /* Ensures image scales properly */
+}
+
+/* Make Text More Readable */
+.about-card .card-body {
+    padding: 20px;
+    text-align: justify;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-img {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+    .dept-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.collab-text {
+    font-size: 0.5rem;
+    font-style: italic;
+}
+
+.university-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+}
+
+
+        /* About Hackathon Section */
+        .about-section {
+            background-color: #0058ca;
+            padding: 40px 20px;
+        }
+     
+
+        .about-section h2 {
+            color: #ff5733;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .about-section p {
+            text-align: justify;
+            font-size: 1.1rem;
+            color: #333;
+        }
+       
+      
+       
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1050;
+             background-color: white; /* Ensure the background is solid */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container {
+             display: flex;
+              flex-direction: column;
+          }
+          .faculty-card p{
+                color: #f8f9fb;
+          }
+       
+#Themes .card {
+    transition: transform 0.3s ease;
+}
+
+#Themes .card:hover {
+    transform: scale(1.05);
+}
+
+
+    </style>
+</head>
+<body>
+  
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div class="fixed-header">
+    <!-- Navbar with Logos -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Left Logos -->
+            <div class="d-flex align-items-center">
+                <img src="assets/logo-5.png" alt="Logo 1" height="50" class="me-3">
+                <img src="assets/logo2.png" alt="Logo 2" height="50">
+            </div>
+
+      
+
+            <!-- Right Logos -->
+            <div class="d-flex align-items-center">
+                <img src="assets/logo-6.png" alt="Right Logo 1" height="50" class="me-3">
+            </div>
+        </div>
+    </nav>
+
+
+    
+    
+    <!-- Navigation Links -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Themes">Themes & Guidelines</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Faculty-Coordinators">Faculty Coordinators</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#About">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-center">
+            <h2 class="dept-text">
+                <strong>Department of Computer Technology</strong> 
+                <span class="collab-text">in collaboration with</span> 
+                <span class="university-text"><strong>Tamil Nadu Dr. Ambedkar Law University</strong></span>
+            </h2>
+            <p><i>presents</i></p>
+            <p class="display-4 fw-bold russo-one-regular">National Legal Hackathon</p>
+            <h2 class="lead">AI x Law Hackathon: An Innovation in Legal</h2>
+            
+            <!-- Register Button -->
+            <a href="#" class="btn btn-danger btn-lg mt-3">Register Now</a>
+    
+           
+           
+        </div>
+    </div>
+    
+
+    <!-- Announcement Ribbon -->
+<!-- Announcement Ribbon -->
+<div class="announcement-ribbon">
+  <div class="announcement-wrapper">
+      <div class="announcement-text">
+          📢 National Legal Hackathon 2025 - Registrations Open! | Submit Your Abstract Before March 31th! | Exciting Prizes & Opportunities Await! 🚀
+      </div>
+      <div class="announcement-text">
+          📢 National Legal Hackathon 2025 - Registrations Open! | Submit Your Abstract Before March 31th! | Exciting Prizes & Opportunities Await! 🚀
+      </div>
+  </div>
+</div>
+
+
+
+    <!-- Themes and Guidelines Section -->
+    <section id="Themes" class="container my-5">
+        <div class="row g-4">
+            <!-- Themes Card -->
+            <div class="col-md-6">
+                <div class="card shadow p-4 themes-card">
+                    <div class="card-body">
+                        <h2 class="text-primary"></i><i class="fa-solid fa-mountain-sun"></i> Themes</h2>
+                        <ul>
+                            <li>Artificial Intelligence and Law</li>
+                            <li>Blockchain Technology, Encryption Techniques, and Law</li>
+                            <li>Virtual Reality</li>
+                            <li>Data Protection and IPR Infringement</li>
+                        </ul>
+                        <h2 class="text-primary"><i class="fa-solid fa-trophy"></i> Prizes</h2>
+                        <ul>
+                        <li><strong>Winner :</strong> ₹10,000</li>
+                        <li><strong>Runner :</strong> ₹5,000</li>
+                        </ul>
+                        <p><i class="fa-solid fa-award"></i><strong> Finale Date:</strong> 04/04/25</p>
+                        <p><i class="fa-solid fa-location-dot"></i><strong> Venue:</strong> MIT Campus, Anna University</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Guidelines Card -->
+            <div class="col-md-6">
+                <div class="card shadow p-4">
+                    <div class="card-body">
+                        <h2 class="text-primary"><i class="bi bi-book"></i><i class="fa-solid fa-scale-balanced"></i> Guidelines</h2>
+                        <p><strong>Team Formation:</strong></p>
+                        <ul >
+                            <li>A team can have a maximum of 4 members:</li>
+                            <ul>
+                                <li>2 Technology students and 2 Law students</li>
+                                <li>3 Technology students and 1 Law student</li>
+                            </ul>
+                        </ul>
+                        <p><strong>Team Selection:</strong></p>
+                        <ul>
+                            <li>Teams must submit an abstract on the chosen theme via a weblink.</li>
+                            <li>Experts from Technology and Law will select 10 teams for the Finale.</li>
+                            <li>The Finale will be held in person for 12 hours (8 am to 8 pm).</li>
+                            <li>Teams will create an AI-based app to solve a problem statement.</li>
+                        </ul>
+                        <p><i class="fa-solid fa-wallet"></i><strong> Registration fee:</strong> 250 per participant</p>
+                        <p><i class="fa-solid fa-calendar-xmark"></i><strong> Deadline to submit abstract:</strong> 31/03/25</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!-- About Hackathon Section -->
+      <section class="about-section">
+        <div class="container">
+            <div class="card shadow p-4">
+                <div class="card-body">
+                    <h2><i class="fa-solid fa-code"></i> About the Hackathon</h2>
+                    <p>
+                        A legal hackathon is a collaborative event where lawyers, technologists, and other professionals come together to create innovative solutions to legal challenges. 
+                        These events can last anywhere from a few hours to a few days, with participants working in teams to brainstorm and develop new ideas and prototypes. 
+                        Legal hackathons foster a dynamic environment for cross-disciplinary collaboration, encouraging creative problem-solving and the development of technology-driven solutions. 
+                        They also offer a valuable opportunity to network, exchange knowledge, and help shape the future of the legal industry through innovation and teamwork. 
+                        These events empower participants to drive innovation in the legal sector, promoting fresh perspectives and cutting-edge solutions. 
+                        They also provide a platform to showcase talent, build connections, and stay ahead in an evolving industry.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <section id="About" class="container my-5">
+    <div id="slidingCards" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- First Card -->
+            <div class="carousel-item active">
+                <div class="card about-card">
+                    <img src="assets/mit.jpg" class="card-img-top about-img" alt="Department Image">
+                    <div class="card-body">
+                        <h5 class="card-title">About Department of Computer Technology</h5>
+                        <p class="card-text">Department of Computer Technology is located in the MIT Campus,
+                          Anna University and functioning under the Faculty of Information and
+                          Communication Engineering. This Department is offering Under
+                          Graduate programme B.E. Computer Science and Engineering, Post
+                          Graduate programme M.E. Computer Science and Engineering and
+                          Doctoral programme Ph.D. The department is committed to the
+                          preparation of graduates to address the great challenges in the field of
+                          Information Technology and to contribute for research and innovation
+                          that ensure the sustained growth in Computing. Since 2018, this
+                          department follows UG Curriculum, based on Centrally Sponsored
+                          Scheme known as Rashtriya Uchchatar Shiksha Abhiyan (RUSA). The
+                          courses are designed to combine rigorous academic study and
+                          exhaustive practical exposure for students with in-depth lab oriented
+                          courses, projects, and internships. Students can have their degree with
+                          Honors by doing additional courses of their choices from critical
+                          domains. The faculty members adopt digital pedagogy to attain the
+                          best quality of education.</p>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Second Card -->
+            <div class="carousel-item">
+                <div class="card about-card">
+                    <img src="assets/tndalu.png" class="card-img-top about-img" alt="TNDALU Image">
+                    <div class="card-body">
+                        <h5 class="card-title">About TNDALU</h5>
+                        <p class="card-text">The University is the first full-fledged sui generis affiliating
+                          Law University in the country; it is unique among all the Law
+                          Universities in the Country. It offers Legal Education through
+                          this University and its affiliated colleges in the State and the
+                          University is the first of its kind not only in the country but
+                          also in South Asia. The University offers legal education at its
+                          campus as well as through fifteen affiliated government law
+                          colleges in the state of Tamil Nadu .University offers legal
+                          education through nine private law colleges located in the
+                          different parts of Tamil Nadu. The School of Excellence in
+                          Law was established by the University in the year 2002 at its
+                          campus has been modeled on the lines of other National Law
+                          Schools in the country and offers three year as well as five
+                          year integrated undergraduate courses in Law.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#slidingCards" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#slidingCards" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<section id="Faculty-Coordinators" class="faculty-section">
+    <div class="text-center">
+        <button class="faculty-title-btn" disabled><i class="fa-solid fa-chalkboard-user"></i> Faculty Coordinators</button>
+    </div>
+    
+    <div class="container my-5">
+        <div class="row justify-content-center g-4">
+            <div class="col-md-4 d-flex">
+                <div class="faculty-card w-100">
+                    <img src="assets/faculty-1.png" class="faculty-img" alt="Dr. P. Jayashree">
+                    <p><strong>Dr. P. Jayashree</strong></p><p><i>Professor & Head of Department of Computer Technology, MIT.</i></p> 
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="faculty-card w-100">
+                    <img src="assets/faculty-2.png" class="faculty-img" alt="Dr. Ranjit Oomen Abraham">
+                    <p><strong>Dr. Ranjit Oomen Abraham</strong></p><p><i>Head of Department of Cyberspace Law and Justice, TNDALU.</i></p>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="faculty-card w-100">
+                    <img src="assets/faculty-3.png" class="faculty-img" alt="Dr. S. Chithra">
+                    <p><strong>Dr. S. Chithra</strong></p><p><i>Associate Professor, Department of Computer Technology, MIT.</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center g-4 mt-3">
+            <div class="col-md-4 d-flex">
+                <div class="faculty-card w-100">
+                    <img src="assets/faculty-4.png" class="faculty-img" alt="Dr. R. Deepalakshmi">
+                    <p><strong>Dr. R. Deepalakshmi</strong></p><p><i>Associate Professor, TNDALU.</i></p>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="faculty-card w-100">
+                    <img src="assets/faculty-5.png" class="faculty-img" alt="Dr. T. Sudhakar">
+                    <p><strong>Dr. T. Sudhakar</strong></p><p><i>Associate Professor, Department of Computer Technology, MIT.</i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer id="Contact" class="footer">
+  <div class="container">
+      <h4 class="text-md-start mb-3">Contact</h4>
+      <div class="row">
+          <div class="col-md-6 text-center text-md-start">
+              <p><i class="fa-solid fa-envelope"></i> <a href="mailto:chithrasmoorthy@gmail.com">chithrasmoorthy@gmail.com</a> | <i class="fa-solid fa-phone"></i>  +91 98847 76511</p>
+              <p><i class="fa-solid fa-envelope"></i> <a href="mailto:tsudhakar105@gmail.com">tsudhakar105@gmail.com</a>       | <i class="fa-solid fa-phone"></i> +91 99422 90298</p>
+          </div>
+          <div class="col-md-6 text-center">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.365110111877!2d80.1371016757313!3d12.9484730873648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fac595c29ff%3A0xb76082ae18b51418!2sMadras%20Institute%20of%20Technology%2C%20Anna%20University!5e0!3m2!1sen!2sin!4v1741458875528!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+      </div>
+  </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
